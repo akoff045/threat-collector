@@ -33,6 +33,12 @@ The original commands still work: `python collector.py` and `python analyzer.py`
 
 `analyze` works without a key on the snapshot already included in `data/`.
 
+## Analysis
+
+[`REPORT.md`](REPORT.md) summarises what the included snapshot shows (draft). For example, one pulse supplies 79% of all indicators, and three top-level domains hold 76% of reported domains. The full, reproducible analysis is in [`notebooks/analysis.ipynb`](notebooks/analysis.ipynb).
+
+![Pulse concentration](docs/figures/pulse_concentration.svg)
+
 ## Tests
 
 ```bash
@@ -58,4 +64,4 @@ The API key is read from the environment or `.env` and is never stored in the co
 
 ## Technologies
 
-Python · requests (with urllib3 retries) · pandas · matplotlib · pytest
+Python · requests (with urllib3 retries) · pandas · matplotlib · Jupyter · pytest
