@@ -1,0 +1,19 @@
+{
+  "count": 3,
+  "next": null,
+  "results": [
+    {
+      "id": "p3",
+      "name": "CVE exploitation",
+      "author_name": "AlienVault",
+      "created": "2025-08-05T10:00:00",
+      "modified": "2025-08-05T10:00:00",
+      "TLP": "white",
+      "tags": ["cve"],
+      "malware_families": [],
+      "indicators": [
+        {"indicator": "CVE-2025-0001", "type": "CVE"}
+      ]
+    }
+  ]
+}

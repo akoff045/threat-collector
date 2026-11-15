@@ -1,19 +1,19 @@
 # Threat Collector
 
-## Overview
+A Python pipeline that collects Indicators of Compromise (IOCs) from AlienVault's Open Threat Exchange (OTX), cleans and de-duplicates them, and produces summary statistics and charts for analysis.
 
-Threat Collector is a Python tool that automates the collection of Indicators of Compromise (IOCs) from AlienVault's Open Threat Exchange (OTX). It fetches threat intelligence data, structures it as CSV, and generates a summary chart to support analysis.
+## What it does
 
-## Features
-
-- **Automated IOC collection:** retrieves indicators from the OTX API (`collector.py`).
-- **Data processing:** parses and structures threat data into CSV (`data/raw_iocs.csv`).
-- **Analytical reporting:** `analyzer.py` prints counts by indicator type and saves a bar chart (`data/summary.png`).
-- **Modular design:** collection and analysis are separate scripts.
+| Stage | Module | What happens |
+| --- | --- | --- |
+| Collect | `threat_collector/collect.py` | Calls the OTX API for pulses (threat reports) from accounts you subscribe to, follows pagination, retries on timeouts/rate limits, and flattens each pulse into one row per indicator, keeping pulse metadata (author, dates, tags, malware families, TLP). |
+| Clean | `threat_collector/transform.py` | Normalises values (lower-case domains and hashes, URL fragments removed) and de-duplicates. The same indicator reported by two different pulses is kept, because that overlap is itself useful. |
+| Store | `data/raw_iocs.csv` + `data/state.json` | Each run is **incremental**: only pulses modified since the last run are fetched and merged into the existing dataset. |
+| Analyze | `threat_collector/analyze.py` | Counts by indicator type, top pulses, duplicate values, and a bar chart (`data/summary.png`). |
 
 ## Quick start
 
-Requires Python 3.10+ (tested with 3.13) and a free OTX account.
+Requires Python 3.11+ (tested with 3.13) and a free OTX account.
 
 ```bash
 python -m venv venv
@@ -23,21 +23,39 @@ pip install -r requirements.txt
 cp .env.example .env              # Windows: copy .env.example .env
 # edit .env and set OTX_API_KEY (OTX > Settings > API Integration)
 
-python collector.py               # writes data/raw_iocs.csv
-python analyzer.py                # prints a summary, writes data/summary.png
+python -m threat_collector collect            # incremental update of data/raw_iocs.csv
+python -m threat_collector analyze            # summary + data/summary.png
 ```
 
-You can also skip `.env` and set the key in your shell: `export OTX_API_KEY=...` (PowerShell: `$env:OTX_API_KEY="..."`).
+Options: `collect --full` rebuilds the dataset from scratch, `collect --max-pages N` limits API pages (default 10), `--data-dir DIR` changes where files live, and `-v` turns on debug logging.
 
-`analyzer.py` works without a key on the CSV already included in `data/`.
+The original commands still work: `python collector.py` and `python analyzer.py`.
+
+`analyze` works without a key on the snapshot already included in `data/`.
+
+## Tests
+
+```bash
+pip install -r requirements-dev.txt
+python -m pytest
+```
+
+The tests run against saved API responses in `tests/fixtures/`, so they need no network access or API key.
+
+## Included dataset
+
+`data/raw_iocs.csv` is a snapshot collected on 2025-09-25: 30,343 indicators from 49 pulses. It was collected with the first version of the tool, so it has no pulse metadata columns. Those columns appear in data collected from now on.
 
 ## Security
 
-The API key is read from the environment and is never stored in the code. `.env` is listed in `.gitignore`. Never commit it.
+The API key is read from the environment or `.env` and is never stored in the code. `.env` is listed in `.gitignore`.
+
+## Limitations
+
+- The subscribed-pulses endpoint reflects the OTX accounts you follow, not the global threat landscape.
+- Indicators are reported as they appear in pulses; the tool does not verify whether they are still malicious.
+- CSV storage is simple but not suited to very large datasets.
 
 ## Technologies
 
-- Python
-- `requests`: HTTP calls to the OTX API
-- `pandas`: data manipulation and CSV handling
-- `matplotlib`: charts
+Python · requests (with urllib3 retries) · pandas · matplotlib · pytest

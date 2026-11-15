@@ -1,0 +1,37 @@
+{
+  "count": 3,
+  "next": "https://otx.alienvault.com/api/v1/pulses/subscribed?limit=2&page=2",
+  "results": [
+    {
+      "id": "p1",
+      "name": "Phishing kit wave",
+      "author_name": "AlienVault",
+      "created": "2025-08-01T10:00:00",
+      "modified": "2025-08-02T10:00:00",
+      "TLP": "white",
+      "tags": ["phishing", "tycoon2fa"],
+      "malware_families": [{"id": "Tycoon2FA", "display_name": "Tycoon2FA"}],
+      "indicators": [
+        {"indicator": "Evil-Login.COM.", "type": "domain"},
+        {"indicator": "evil-login.com", "type": "domain"},
+        {"indicator": "HTTPS://Evil-Login.com/Path?A=1#frag", "type": "URL"},
+        {"indicator": "D41D8CD98F00B204E9800998ECF8427E", "type": "FileHash-MD5"},
+        {"indicator": "", "type": "domain"}
+      ]
+    },
+    {
+      "id": "p2",
+      "name": "Botnet C2",
+      "author_name": "researcher42",
+      "created": "2025-08-03T10:00:00",
+      "modified": "2025-08-03T12:00:00",
+      "TLP": "green",
+      "tags": [],
+      "malware_families": [],
+      "indicators": [
+        {"indicator": " 203.0.113.7 ", "type": "IPv4"},
+        {"indicator": "evil-login.com", "type": "domain"}
+      ]
+    }
+  ]
+}
