@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="312" viewBox="0 0 760 312" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+<rect width="760" height="312" fill="#ffffff"/>
+<text x="12" y="26" font-size="16" fill="#101019">Without the largest pulse, file hashes are a quarter of the feed</text>
+<text x="12" y="48" font-size="12.5" fill="#55536A">Share of indicators by type (%)</text>
+<text x="150" y="78" font-size="13" fill="#101019">All pulses</text>
+<line x1="150" y1="84" x2="150" y2="296" stroke="#E6E4EC"/>
+<text x="140" y="103" font-size="12.5" text-anchor="end" fill="#101019">domain</text>
+<rect x="150" y="92" width="230.0" height="16" rx="3" fill="#8055E8"><title>domain: 91.1%</title></rect>
+<text x="386.0" y="103" font-size="11.5" fill="#101019">91.1%</text>
+<text x="140" y="129" font-size="12.5" text-anchor="end" fill="#101019">FileHash-SHA256</text>
+<rect x="150" y="118" width="7.3" height="16" rx="3" fill="#8055E8"><title>FileHash-SHA256: 2.9%</title></rect>
+<text x="163.3" y="129" font-size="11.5" fill="#101019">2.9%</text>
+<text x="140" y="155" font-size="12.5" text-anchor="end" fill="#101019">hostname</text>
+<rect x="150" y="144" width="5.8" height="16" rx="3" fill="#8055E8"><title>hostname: 2.3%</title></rect>
+<text x="161.8" y="155" font-size="11.5" fill="#101019">2.3%</text>
+<text x="140" y="181" font-size="12.5" text-anchor="end" fill="#101019">FileHash-MD5</text>
+<rect x="150" y="170" width="3.3" height="16" rx="3" fill="#8055E8"><title>FileHash-MD5: 1.3%</title></rect>
+<text x="159.3" y="181" font-size="11.5" fill="#101019">1.3%</text>
+<text x="140" y="207" font-size="12.5" text-anchor="end" fill="#101019">FileHash-SHA1</text>
+<rect x="150" y="196" width="3.0" height="16" rx="3" fill="#8055E8"><title>FileHash-SHA1: 1.2%</title></rect>
+<text x="159.0" y="207" font-size="11.5" fill="#101019">1.2%</text>
+<text x="140" y="233" font-size="12.5" text-anchor="end" fill="#101019">IPv4</text>
+<rect x="150" y="222" width="1.8" height="16" rx="3" fill="#8055E8"><title>IPv4: 0.7%</title></rect>
+<text x="157.8" y="233" font-size="11.5" fill="#101019">0.7%</text>
+<text x="140" y="259" font-size="12.5" text-anchor="end" fill="#101019">URL</text>
+<rect x="150" y="248" width="1.5" height="16" rx="3" fill="#8055E8"><title>URL: 0.5%</title></rect>
+<text x="157.5" y="259" font-size="11.5" fill="#101019">0.5%</text>
+<text x="140" y="285" font-size="12.5" text-anchor="end" fill="#101019">CVE</text>
+<rect x="150" y="274" width="1.5" height="16" rx="3" fill="#8055E8"><title>CVE: 0.1%</title></rect>
+<text x="157.5" y="285" font-size="11.5" fill="#101019">0.1%</text>
+<text x="450" y="78" font-size="13" fill="#101019">Without largest pulse</text>
+<line x1="450" y1="84" x2="450" y2="296" stroke="#E6E4EC"/>
+<rect x="450" y="92" width="152.0" height="16" rx="3" fill="#8055E8"><title>domain: 60.2%</title></rect>
+<text x="608.0" y="103" font-size="11.5" fill="#101019">60.2%</text>
+<rect x="450" y="118" width="35.3" height="16" rx="3" fill="#8055E8"><title>FileHash-SHA256: 14.0%</title></rect>
+<text x="491.3" y="129" font-size="11.5" fill="#101019">14.0%</text>
+<rect x="450" y="144" width="18.9" height="16" rx="3" fill="#8055E8"><title>hostname: 7.5%</title></rect>
+<text x="474.9" y="155" font-size="11.5" fill="#101019">7.5%</text>
+<rect x="450" y="170" width="15.9" height="16" rx="3" fill="#8055E8"><title>FileHash-MD5: 6.3%</title></rect>
+<text x="471.9" y="181" font-size="11.5" fill="#101019">6.3%</text>
+<rect x="450" y="196" width="14.4" height="16" rx="3" fill="#8055E8"><title>FileHash-SHA1: 5.7%</title></rect>
+<text x="470.4" y="207" font-size="11.5" fill="#101019">5.7%</text>
+<rect x="450" y="222" width="8.1" height="16" rx="3" fill="#8055E8"><title>IPv4: 3.2%</title></rect>
+<text x="464.1" y="233" font-size="11.5" fill="#101019">3.2%</text>
+<rect x="450" y="248" width="6.3" height="16" rx="3" fill="#8055E8"><title>URL: 2.5%</title></rect>
+<text x="462.3" y="259" font-size="11.5" fill="#101019">2.5%</text>
+<rect x="450" y="274" width="1.5" height="16" rx="3" fill="#8055E8"><title>CVE: 0.6%</title></rect>
+<text x="457.5" y="285" font-size="11.5" fill="#101019">0.6%</text>
+</svg>
